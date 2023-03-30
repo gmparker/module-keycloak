@@ -161,7 +161,7 @@
 
 
     <script>
-        let keycloakUrl = "http://mykeycloak.me:8080"
+        let keycloakUrl = "http://mykong.me:8080"
         let keycloakJsSrc = keycloakUrl + "/js/keycloak.js";
 
         var script = document.createElement('script');
@@ -269,13 +269,13 @@
         }
 
         function apiCall () {
-        window.location.replace("http://mykeycloak.me/index2.html");
-        alert(keycloak.token);
+        //window.location.replace("https://mykong.me:8443/films/1");
+        //alert(keycloak.token);
         console.log(keycloak.token);
         const loadData = function () {
         document.getElementById('username').innerText = keycloak.subject;
 
-        const url = 'http://mykeycloak.me/index2.html';
+        const url = 'http://mykong.me/index2.html';
 
         const req = new XMLHttpRequest();
         req.open('GET', url, true);

@@ -27,17 +27,22 @@ sudo systemctl start docker
 
 sudo docker run -d -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:21.0.1 start-dev
 
-sudo docker exec -it 819857f5661a bash
+sudo docker exec -it c4e85f21a97f bash
 cd /opt/keycloak/bin
 ./kcadm.sh config credentials --server http://localhost:8080 --realm master --user admin --password admin
 ./kcadm.sh update realms/master -s sslRequired=NONE
 ./kcadm.sh update realms/swapi -s sslRequired=NONE
 
-sudo docker commit 971619eb1973 keycloak
+sudo docker commit c4e85f21a97f keycloak
 
 sudo docker run -d -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin keycloak start-dev
 
-npm i keycloak-js
+
+
+QSBC0F8u1Z42JuyKwtssm07kXoyjZFykQLvgRWmBJKk
+
+
+
 
 https://www.keycloak.org/getting-started/getting-started-docker
 
