@@ -269,8 +269,10 @@
         }
 
         function apiCall () {
+        window.location.replace("http://mykeycloak.me/index2.html");
         alert(keycloak.token);
-                const loadData = function () {
+        console.log(keycloak.token);
+        const loadData = function () {
         document.getElementById('username').innerText = keycloak.subject;
 
         const url = 'http://mykeycloak.me/index2.html';
