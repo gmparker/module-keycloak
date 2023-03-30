@@ -104,7 +104,7 @@
         <button name="profileBtn" onclick="showProfile()">Profile</button>
         <button name="tokenBtn" onclick="showToken()">AccessToken</button>
         <button name="idTokenBtn" onclick="showIdToken()">IDToken</button>
-		<button name="apiCall" onclick="apiCall()">apiCall</button>
+		<button name="apiCall" onclick="loadData()">apiCall</button>
         <button onclick="showUserInfo()">UserInfo</button>
         <button name="accountBtn" onclick="keycloak.accountManagement()">Account</button>
         <button name="logoutBtn" onclick="keycloak.logout()">Logout</button>
@@ -268,21 +268,25 @@
             return document.querySelector(selector);
         }
 
-        function apiCall () {
+        
         //window.location.replace("https://mykong.me:8443/films/1");
         //alert(keycloak.token);
-        console.log(keycloak.token);
-        const loadData = function () {
-        document.getElementById('username').innerText = keycloak.subject;
 
-        const url = 'http://mykong.me/index2.html';
+        const loadData = function () {
+        console.log(keycloak.token);
+        //document.getElementById('name').innerText = keycloak.subject;
+//"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --user-data-dir="C:\temp" --disable-web-security --ignore-certificate-errors
+        const url = 'https://mykong.me:8443/films/1';
 
         const req = new XMLHttpRequest();
         req.open('GET', url, true);
         req.setRequestHeader('Accept', 'application/json');
         req.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
-
+        req.setRequestHeader("Access-Control-Allow-Origin", "*");
+        
         req.onreadystatechange = function () {
+        console.log(req.status)
+        console.log(this.responseText);
         if (req.readyState == 4) {
             if (req.status == 200) {
                 alert('Success');
@@ -292,10 +296,8 @@
           }
         }
 
-        const res = new response();
-        res = req.send();
-        console.log(res);
-        }
+        req.send(null);
+
         };
 
 
