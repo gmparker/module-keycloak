@@ -268,12 +268,28 @@
             return document.querySelector(selector);
         }
 
-		function httpGet() {	
-		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.open( "GET", "https://login.lytx.com", false ); // false for synchronous request
-		xmlHttp.send( null );
-		return xmlHttp.responseText;
-		}
+        const loadData = function () {
+        document.getElementById('username').innerText = keycloak.subject;
+
+        const url = 'http://localhost:8080/restful-service';
+
+        const req = new XMLHttpRequest();
+        req.open('GET', url, true);
+        req.setRequestHeader('Accept', 'application/json');
+        req.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
+
+        req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            if (req.status == 200) {
+                alert('Success');
+            } else if (req.status == 403) {
+                alert('Forbidden');
+            }
+          }
+        }
+
+        req.send();
+        };
 
 
     </script>
