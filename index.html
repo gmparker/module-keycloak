@@ -290,6 +290,8 @@
         if (req.readyState == 4) {
             if (req.status == 200) {
                 alert('Success');
+            } else if (req.status == 401) {
+                alert('Unauthorized');
             } else if (req.status == 403) {
                 alert('Forbidden');
             }
