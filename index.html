@@ -104,7 +104,7 @@
         <button name="profileBtn" onclick="showProfile()">Profile</button>
         <button name="tokenBtn" onclick="showToken()">AccessToken</button>
         <button name="idTokenBtn" onclick="showIdToken()">IDToken</button>
-		<button name="lytxLogin" onclick="httpGet()">lytxLogin</button>
+		<button name="apiCall" onclick="apiCall()">apiCall</button>
         <button onclick="showUserInfo()">UserInfo</button>
         <button name="accountBtn" onclick="keycloak.accountManagement()">Account</button>
         <button name="logoutBtn" onclick="keycloak.logout()">Logout</button>
@@ -268,12 +268,34 @@
             return document.querySelector(selector);
         }
 
-		function httpGet() {	
-		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.open( "GET", "https://login.lytx.com", false ); // false for synchronous request
-		xmlHttp.send( null );
-		return xmlHttp.responseText;
-		}
+ 
+        function apiCall () {
+        alert(keycloak.token);
+		const loadData = function () {
+        document.getElementById('username').innerText = keycloak.subject;
+
+        const url = 'http://mykeycloak.me/index2.html';
+
+        const req = new XMLHttpRequest();
+        req.open('GET', url, true);
+        req.setRequestHeader('Accept', 'application/json');
+        req.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
+
+        req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            if (req.status == 200) {
+                alert('Success');
+            } else if (req.status == 403) {
+                alert('Forbidden');
+            }
+          }
+        }
+
+        const res = new response();
+        res = req.send();
+        console.log(res);
+        }
+        };
 
 
     </script>
