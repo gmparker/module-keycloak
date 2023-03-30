@@ -1,0 +1,76 @@
+Keycloak-EA   35.89.140.92
+Kong-EA       54.244.194.251
+Web-EA        34.209.89.171
+
+
+https://cloudnativereference.dev/related-repositories/auth/
+
+https://www.keycloak.org/getting-started/getting-started-docker
+
+
+curl -L -X POST 'https://10.132.17.243:8443/auth/realms/master/protocol/openid-connect/token' -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'co_id=000001' \
+  --data-urlencode 'grant_type=password' \
+  --data-urlencode 'client_secret=Aq3k3YbP6r6To3YMDPhOkrmJSPypBOys' \
+  --data-urlencode 'scope=openid' \
+  --data-urlencode 'username=admin' \
+  --data-urlencode 'password=P@ssw0rd!'
+
+
+
+https://10.132.17.243:8443/auth/realms/dev/.well-known/openid-configuration 
+
+
+
+sudo yum install docker
+sudo systemctl start docker
+
+sudo docker run -d -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:21.0.1 start-dev
+
+sudo docker exec -it 819857f5661a bash
+cd /opt/keycloak/bin
+./kcadm.sh config credentials --server http://localhost:8080 --realm master --user admin --password admin
+./kcadm.sh update realms/master -s sslRequired=NONE
+./kcadm.sh update realms/swapi -s sslRequired=NONE
+
+sudo docker commit 971619eb1973 keycloak
+
+sudo docker run -d -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin keycloak start-dev
+
+npm i keycloak-js
+
+https://www.keycloak.org/getting-started/getting-started-docker
+
+
+https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html
+
+/var/www/html/gatsby-starter-hello-world-master
+./home/ec2-user/.nvm/versions/node/v16.19.1/lib/node_modules
+sudo /home/ec2-user/.nvm/versions/node/v16.19.1/lib/node_modules/npm/bin/npm install --global gatsby-cli
+
+
+
+
+
+curl -L -X POST 'http://localhost:8080/realms/swapi/protocol/openid-connect/token' -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'client_id=acme_supply' \
+  --data-urlencode 'grant_type=password' \
+  --data-urlencode 'client_secret=HgDk4jZLZcwdChMfzktcddkbiB87ZdsT' \
+  --data-urlencode 'scope=openid' \
+  --data-urlencode 'username=acme_supply' \
+  --data-urlencode 'password=acme_supply' \
+  --data-urlencode 'co_id=000001' 
+
+
+
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu9SvCV3S7NYXDWHObpgvXVVUQe/tzFaBFxToLPdOblRLSmT+OaUhgVkZyvv8KSwh+1e032jkmUtj1t0WRV19FWOni4QMoxy0EZAYpdKAMmEafviHwm+KMg76Q/Ff8CMNXn5nssvprsPo0fOR7RkRt9kf/mabjWhw1+3WZXrZ7qPqqxS5d4cwuAJUJhbcc7N+SR6GBw6u+i6VWD7fktUcSMBxAv1Xtc65APllIJnfOP/F1BSP6wieyfWmqLUXJBCeZnAN3n9KjT9vBn3lJ2gHnxghRS0SgBpnFX6G92mMbdl+ITWmxNLttbGdD1xKlZDtaXdtNd7Qp/0GdLLWmt6msQIDAQAB
+-----END PUBLIC KEY-----
+
+
+
+
+
+https://github.com/Ze1598/medium-articles/blob/master/Create%20your%20first%20login%20page%20with%20HTML%20CSS%20and%20JavaScript/login-page.css
+https://github.com/Ze1598/medium-articles/blob/master/Create%20your%20first%20login%20page%20with%20HTML%20CSS%20and%20JavaScript/login-page.html
+https://github.com/Ze1598/medium-articles/blob/master/Create%20your%20first%20login%20page%20with%20HTML%20CSS%20and%20JavaScript/login-page.js
