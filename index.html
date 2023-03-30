@@ -268,10 +268,9 @@
             return document.querySelector(selector);
         }
 
- 
         function apiCall () {
         alert(keycloak.token);
-		const loadData = function () {
+                const loadData = function () {
         document.getElementById('username').innerText = keycloak.subject;
 
         const url = 'http://mykeycloak.me/index2.html';
