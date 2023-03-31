@@ -32,6 +32,7 @@ cd /opt/keycloak/bin
 ./kcadm.sh config credentials --server http://localhost:8080 --realm master --user admin --password admin
 ./kcadm.sh update realms/master -s sslRequired=NONE
 ./kcadm.sh update realms/swapi -s sslRequired=NONE
+./kcadm.sh update realms/Lytx -s sslRequired=NONE
 
 sudo docker commit c4e85f21a97f keycloak
 
