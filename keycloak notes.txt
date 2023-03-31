@@ -79,3 +79,31 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu9SvCV3S7NYXDWHObpgvXVVUQe/tzFaBFxTo
 https://github.com/Ze1598/medium-articles/blob/master/Create%20your%20first%20login%20page%20with%20HTML%20CSS%20and%20JavaScript/login-page.css
 https://github.com/Ze1598/medium-articles/blob/master/Create%20your%20first%20login%20page%20with%20HTML%20CSS%20and%20JavaScript/login-page.html
 https://github.com/Ze1598/medium-articles/blob/master/Create%20your%20first%20login%20page%20with%20HTML%20CSS%20and%20JavaScript/login-page.js
+
+
+
+## Keycloak configuration
+1. Create realm
+  Realm ID
+2. Create client
+  Client Id
+  Name
+  Description
+  Valid redirect URIs  - *
+  Web Origings - *
+3. Create client scope
+  Name
+  Description
+  Type - Default
+  Mappers - Map custom user attributes
+      Name * 
+      User Attribute 
+      Token Claim Name 
+      Claim JSON Type 
+      Add to ID token - On
+      Add to access token - On
+      Add to userinfo - On
+4. Attach Client Scope to client
+5. Create user
+  Add password credential
+  Add custom user attributes
