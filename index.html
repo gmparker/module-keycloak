@@ -220,7 +220,7 @@
             let firstname = keycloak.tokenParsed['given_name'];
             let lastname = keycloak.tokenParsed['family_name'];
             let email = keycloak.tokenParsed['email'];
-
+            
             if (firstname) {
                 select('#firstName').innerHTML = firstname;
             }
