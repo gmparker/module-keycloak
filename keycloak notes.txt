@@ -108,3 +108,6 @@ https://github.com/Ze1598/medium-articles/blob/master/Create%20your%20first%20lo
 5. Create user
   Add password credential
   Add custom user attributes
+
+
+curl -L https://github.com/leroyguillaume/keycloak-bcrypt/releases/download/1.5.3/keycloak-bcrypt-1.5.3.jar
